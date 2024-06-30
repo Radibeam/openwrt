@@ -113,7 +113,6 @@ endef
 TARGET_DEVICES += cisco_vedge1000
 
 define Device/zyxel_usg1100
-  $(Device/zyxel_usg1100)
   DEVICE_MODEL := Zyxel usg1100
   BOARD_NAME := zyxel,usg1100
   DEVICE_PACKAGES += kmod-gpio-button-hotplug kmod-leds-gpio
