@@ -26,6 +26,9 @@ octeon_move_config() {
 		ubnt,edgerouter-6p)
 			move_config "/dev/mmcblk0p1"
 			;;
+		zyxel,usg1100)
+			move_config "/dev/sda1"
+			;;
 	esac
 }
 

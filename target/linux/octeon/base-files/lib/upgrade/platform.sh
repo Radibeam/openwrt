@@ -38,6 +38,9 @@ platform_copy_config() {
 	ubnt,edgerouter-6p)
 		platform_copy_config_helper /dev/mmcblk0p1
 		;;
+	zyxel,usg1100)
+		platform_copy_config_helper /dev/sda1
+		;;
 	esac
 }
 
@@ -99,6 +102,9 @@ platform_do_upgrade() {
 	itus,shield-router)
 		kernel=ItusrouterImage
 		;;
+	zyxel,usg1100)
+		kernel=sda1
+		;;
 	*)
 		return 1
 	esac
@@ -122,7 +128,8 @@ platform_check_image() {
 	itus,shield-router | \
 	ubnt,edgerouter-4 | \
 	ubnt,edgerouter-6p | \
-	ubnt,usg)
+	ubnt,usg | \
+	zyxel,usg1100)
 		local kernel_length=$(tar xf $tar_file $board_dir/kernel -O | wc -c 2> /dev/null)
 		local rootfs_length=$(tar xf $tar_file $board_dir/root -O | wc -c 2> /dev/null)
 		[ "$kernel_length" = 0 -o "$rootfs_length" = 0 ] && {

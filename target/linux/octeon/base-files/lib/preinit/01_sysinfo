@@ -35,6 +35,9 @@ do_sysinfo_octeon() {
 	"ITUS_SHIELD"*)
 		name="itus,shield-router"
 		;;
+	"ZYXEL_USG1100"*)
+		name="usg1100"
+		;;
 
 	*)
 		name="generic"
